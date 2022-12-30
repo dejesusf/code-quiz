@@ -9,21 +9,20 @@ var questions= [
     {question:"Where does the JavaScript code belong?",
     answers:["Head", "Top of Body", "Middle of Body", "Bottom of Body"],
     correctAnswer:"Bottom of Body"},
-    {question:"",
-    answers:"",
-    correctAnswer:""},
-    {question:"",
-    answers:"",
-    correctAnswer:""}
+    {question:"What is a string?",
+    answers:["A number","A series of characters surrounded by quotation marks", "A thin strand of material similar to rope", "A variable"],
+    correctAnswer:"A series of characters surrounded by quotation marks"},
+    {question:"What does this (!) operator mean?",
+    answers:["Greater than", "Strict equality", "Less Than", "Not"],
+    correctAnswer:"Not"}
 ]
 var startButton=document.querySelector("#start");
 var timer=document.querySelector("#timer");
 var secondsLeft;
-var shuffle;
 
 //start quiz
 function startQuiz(){
-    shuffle = shuffle(questions)
+    
 }
 
 //correct answer

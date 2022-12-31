@@ -25,6 +25,10 @@ section {
     display: flex;
 }
 
+.hidden {
+    display: none;
+}
+
 #details {
     flex-direction: column;
     text-align: center;
@@ -49,4 +53,15 @@ section {
 
 button:hover, a:hover {
     cursor: crosshair;
+}
+
+#quiz {
+    font-size: 175%;
+}
+
+#answer-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background: white; */
 }

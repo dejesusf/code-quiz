@@ -15,14 +15,16 @@
     <main>
         <section id="details">
             <h2>Test your JavaScript knowledge with this code quiz!</h2>
-            <p>Instructions: Select the correct answer and you will not be penalized. However, if you choose the wrong answer 10 seconds will be subtracted from the timer. Quiz ends when all questions have been answered or when the timer hits 0!</p>
+            <p>Instructions: Select the correct answer and you will not be penalized. Choose the wrong answer and 10 seconds will be subtracted from the timer. Quiz ends when all questions have been answered or when the timer hits 0!</p>
             <button id="start"><h2>START</h2></button>
         </section>
-        <section id="quiz">
+        <section id="quiz" class="hidden">
+            <h2 id="question"></h2>
             <div id="answers"></div>
+            <div id="correct" class="hidden"></div>
         </section>
-        <section>
-            SCORE BOARD
+        <section id="scoreboard" class="hidden">
+            <h2>You scored <span id="score"></span> points! Add your initials and score to the scoreboard.</h2>
             <form>
                 <input type="text" placeholder="initials">
                 <button>ADD SCORE</button>

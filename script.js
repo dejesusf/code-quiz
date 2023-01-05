@@ -1,4 +1,4 @@
-//questions and other variables
+//questions
 var questions= [
     {question:"Which type is NOT a partner Pokemon that you receive at the beginning of every game?",
     answers:["Electric", "Fire", "Water", "Grass"],
@@ -8,7 +8,7 @@ var questions= [
     answers:["Fighting", "Normal", "Flying", "Dark"],
     correctAnswer:"Fighting"},
 
-    {question:"Which would be the most effective movee against a ground/water type?",
+    {question:"Which would be the most effective move against a ground/water type?",
     answers:["Grass", "Electric", "Rock", "Poison"],
     correctAnswer:"Grass"},
 
@@ -40,20 +40,26 @@ var questions= [
     answers:["Grass", "Water", "Fire", "Electric"],
     correctAnswer:"Grass"}
 ]
+//button variables
 var start=document.getElementById("start");
-var timer=document.getElementById("timer");
+//section variables
 var details=document.getElementById("details");
 var quiz=document.getElementById("quiz");
-var correct=document.getElementById("correct");
 var scoreboard=document.getElementById("scoreboard");
+//quiz section variables
+var questionEl=document.getElementById("question");
+var answersEl=document.getElementById("answers");
+var correct=document.getElementById("correct");
+//timer variables
+var timer=document.getElementById("timer");
+var timerInterval;
+var secondsLeft;
+//scoreboard variables
 var score=document.getElementById("score");
 var scoreboardUl=document.getElementById("scores");
-var answersEl=document.getElementById("answers");
-var questionEl=document.getElementById("question");
 var initial=document.querySelector("input");
+//other variables
 var currentQuestion=0;
-var secondsLeft;
-var timerInterval;
 var shuffleQs;
 
 //randomize questions - Durstenfeld shuffle algorithm
@@ -73,7 +79,7 @@ function startQuiz(){
     quiz.setAttribute("class","")
     shuffleQs=shuffleArray(questions)
     //timer
-    secondsLeft=100;
+    secondsLeft=150;
     timer.textContent=secondsLeft + " second(s) remaining!"
     //timer countdown
     timerInterval=setInterval(()=>{
@@ -108,7 +114,7 @@ function nextQuestion(){
 //correct answer
 function rightAnswer(){
     correct.setAttribute("class","");
-    correct.textContent="Correct!";
+    correct.textContent="CORRECT!";
     currentQuestion++;
     if (currentQuestion<shuffleQs.length){
         setTimeout(nextQuestion,1000)
@@ -121,7 +127,7 @@ function rightAnswer(){
 //this function should be similar to the correct answer
 function wrongAnswer(){
     correct.setAttribute("class","")
-    correct.textContent="Wrong!"
+    correct.textContent="WRONG!"
     currentQuestion++;
     secondsLeft-=10;
     if (currentQuestion<shuffleQs.length){
@@ -158,11 +164,11 @@ function saveScore() {
         initials: initial.value,
         points: secondsLeft
     };
-    localStorage.setItem("userScore",userScore);
+    localStorage.setItem("userScore",JSON.stringify(userScore));
 }
 
 function renderSaveScore() {
-    var lastScore= localStorage.getItem("userScore");
+    var lastScore=JSON.parse(localStorage.getItem("userScore"));
     if (lastScore !==null) {
         var lastScoreInput=document.createElement("li");
         lastScoreInput.textContent=lastScore;
@@ -171,7 +177,6 @@ function renderSaveScore() {
         return;
     }
 }
-
 document.querySelector("form").addEventListener("submit", function(event){
     event.preventDefault();
     saveScore();

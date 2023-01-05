@@ -171,11 +171,12 @@ function renderSaveScore() {
     var lastScore=JSON.parse(localStorage.getItem("userScore"));
     if (lastScore !==null) {
         var lastScoreInput=document.createElement("li");
-        lastScoreInput.textContent=lastScore;
+        lastScoreInput.textContent=lastScore.initials + "-----" + lastScore.points;
         scoreboardUl.append(lastScoreInput)
     } else {
         return;
     }
+    
 }
 document.querySelector("form").addEventListener("submit", function(event){
     event.preventDefault();

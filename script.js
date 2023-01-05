@@ -171,7 +171,7 @@ function renderSaveScore() {
     var lastScore=JSON.parse(localStorage.getItem("userScore"));
     if (lastScore !==null) {
         var lastScoreInput=document.createElement("li");
-        lastScoreInput.textContent=lastScore.initials + "-----" + lastScore.points;
+        lastScoreInput.textContent=lastScore.initials + " ---------- " + lastScore.points;
         scoreboardUl.append(lastScoreInput)
     } else {
         return;

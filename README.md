@@ -7,8 +7,8 @@ With this quiz, I felt a lot more confident in the language. It really helped to
 
 ## Website
 Here is a screenshot of the homepage of my Code Quiz as well as a random first question once you click START.
-![screenshot of the initial page of the quiz](images/code-quiz-home.png)
-![screenshot of a random first question once you click START](images/code-quiz-home.png)
+![screenshot of the initial page of the quiz](/images/code-quiz-home.png)
+![screenshot of a random first question once you click START](/images/code-quiz-click.png)
 ![screenshot of the end page of the quiz](images/code-quiz-end.png)
 
 ## Link

@@ -1,24 +1,44 @@
 //questions and other variables
 var questions= [
-    {question:"Given that variables a=10 and b=''10'', how would this expression return? console.log(a===b)",
-    answers:["True", "False", "Equal", "Not Equal"],
-    correctAnswer: "False"},
+    {question:"Which type is NOT a partner Pokemon that you receive at the beginning of every game?",
+    answers:["Electric", "Fire", "Water", "Grass"],
+    correctAnswer: "Electric"},
 
-    {question:"In this array: dogs, cats, mice, lions, what would index 2 refer to?",
-    answers:["Dogs", "Cats", "Mice", "Lions"],
-    correctAnswer:"Mice"},
+    {question:"Which would be most effective against a dark-type?",
+    answers:["Fighting", "Normal", "Flying", "Dark"],
+    correctAnswer:"Fighting"},
 
-    {question:"Where does the JavaScript code belong?",
-    answers:["Head", "Top of Body", "Middle of Body", "Bottom of Body"],
-    correctAnswer:"Bottom of Body"},
+    {question:"Which would be the most effective movee against a ground/water type?",
+    answers:["Grass", "Electric", "Rock", "Poison"],
+    correctAnswer:"Grass"},
 
-    {question:"What is a string?",
-    answers:["A number","A series of characters surrounded by quotation marks", "A thin strand of material similar to rope", "A variable"],
-    correctAnswer:"A series of characters surrounded by quotation marks"},
+    {question:"If a move is 'super effective', how much damage does it deal?",
+    answers:["2x","1.5x", "1x", "0x"],
+    correctAnswer:"2x"},
 
-    {question:"What does this (!) operator mean?",
-    answers:["Greater than", "Strict equality", "Less Than", "Not"],
-    correctAnswer:"Not"}
+    {question:"If a move is 'not very effective', how much damage does it deal?",
+    answers:["0.5x", "2x", "1x", "0x"],
+    correctAnswer:"0.5x"},
+
+    {question:"Which type is the newest?",
+    answers:["Fairy", "Dark", "Dragon", "Steel"],
+    correctAnswer:"Fairy"},
+
+    {question:"Gyarados is what type of pokemon?",
+    answers:["Water/Flying", "Water/Dragon", "Dragon/Flying", "Water/Normal"],
+    correctAnswer:"Water/Flying"},
+
+    {question:"If your opponent is using a Dark/Psychic Pokemon, what would be the most effective Pokemon type or move to use?",
+    answers:["Bug", "Ghost", "Fairy", "Steel"],
+    correctAnswer:"Bug"},
+
+    {question:"What happens when a normal type move is used on a ghost type Pokemon?",
+    answers:["Has no effect", "Super effective", "Not very effective", "Critical Hit"],
+    correctAnswer:"Has no effect"},
+
+    {question:"In the most recent generation of Pokemon games (Scarlet & Violet), what type of Pokemon will your rival choose if you picked a Fire type?",
+    answers:["Grass", "Water", "Fire", "Electric"],
+    correctAnswer:"Grass"}
 ]
 var start=document.getElementById("start");
 var timer=document.getElementById("timer");
@@ -53,17 +73,14 @@ function startQuiz(){
     quiz.setAttribute("class","")
     shuffleQs=shuffleArray(questions)
     //timer
-    secondsLeft=30;
+    secondsLeft=100;
     timer.textContent=secondsLeft + " second(s) remaining!"
     //timer countdown
     timerInterval=setInterval(()=>{
         secondsLeft--;
         timer.textContent=secondsLeft + " second(s) remaining!"
-        //condition if seconds is less than or equal to 0, seconds will equal to zero, and end quiz
-        //also this will make it so that the score is not a negative number
         if (secondsLeft<=0){
-            secondsLeft=0;
-            endQuiz()
+            endQuiz();
         }
     },1000);
     nextQuestion()
@@ -116,6 +133,10 @@ function wrongAnswer(){
 
 //game over & scoreboard
 function endQuiz(){
+    //score is not a negative number
+    if (secondsLeft<0){
+        secondsLeft=0;
+    }
     clearInterval(timerInterval);
     quiz.setAttribute("class","hidden");
     scoreboard.setAttribute("class","")
@@ -137,11 +158,11 @@ function saveScore() {
         initials: initial.value,
         points: secondsLeft
     };
-    localStorage.setItem("userScore",JSON.stringify(userScore));
+    localStorage.setItem("userScore",userScore);
 }
 
 function renderSaveScore() {
-    var lastScore= JSON.parse(localStorage.getItem("userScore"));
+    var lastScore= localStorage.getItem("userScore");
     if (lastScore !==null) {
         var lastScoreInput=document.createElement("li");
         lastScoreInput.textContent=lastScore;

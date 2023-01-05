@@ -1,4 +1,4 @@
-//questions
+//questions pool
 var questions= [
     {question:"Which type is NOT a partner Pokemon that you receive at the beginning of every game?",
     answers:["Electric", "Fire", "Water", "Grass"],
@@ -50,6 +50,7 @@ var scoreboard=document.getElementById("scoreboard");
 var questionEl=document.getElementById("question");
 var answersEl=document.getElementById("answers");
 var correct=document.getElementById("correct");
+var currentQuestion=0;
 //timer variables
 var timer=document.getElementById("timer");
 var timerInterval;
@@ -59,7 +60,6 @@ var score=document.getElementById("score");
 var scoreboardUl=document.getElementById("scores");
 var initial=document.querySelector("input");
 //other variables
-var currentQuestion=0;
 var shuffleQs;
 
 //randomize questions - Durstenfeld shuffle algorithm

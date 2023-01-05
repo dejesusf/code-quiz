@@ -48,6 +48,10 @@ section {
     font-size: 18px;
 }
 
+li {
+    list-style-type: none;
+}
+
 /*button styling*/
 #details button, #scoreboard button {
     background: white;

@@ -43,32 +43,38 @@ section {
     font-size: 200%;
 }
 
-#details p {
+p {
     padding: 1% 20%;
     font-size: 18px;
+}
+
+#quiz p {
+    font-weight: bolder;
 }
 
 li {
     list-style-type: none;
 }
 
-/*button styling*/
-#details button, #scoreboard button {
-    background: white;
-    height: auto;
-    border: 1px dashed black;
-}
-
-button:hover, a:hover {
-    cursor: crosshair;
-}
-
-/*answers section and button styling*/
+/*answers section*/
 #answers {
     display: flex;
     flex-direction: column;
     margin: 10px;
     background: white;
+}
+
+/*class to hide display of certain sections and divs*/
+.hidden {
+    display: none;
+}
+
+/*buttons*/
+button {
+    background: white;
+    height: auto;
+    border: 1px dashed black;
+    font-size: 18px;
 }
 
 #answers button {
@@ -78,7 +84,12 @@ button:hover, a:hover {
     border: 1px dashed black;
 }
 
-/*class to hide display of certain sections and divs*/
-.hidden {
-    display: none;
+/*hover*/
+button:hover {
+    background-color: #DAF7FE;
+    cursor: crosshair;
+}
+
+a:hover {
+    cursor: crosshair;
 }
